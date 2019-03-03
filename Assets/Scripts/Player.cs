@@ -34,6 +34,22 @@ public class Player : MonoBehaviour {
             anim.SetBool("isRight", false);
             anim.SetBool("isLeft", false);
         }
+        if(vertical > 0)
+        {
+            anim.SetBool("isUp", true);
+            anim.SetBool("isDown", false);
+        }
+        else if (vertical < 0)
+        {
+            anim.SetBool("isUp", false);
+            anim.SetBool("isDown", true);
+        }
+        else
+        {
+            anim.SetBool("isUp", false);
+            anim.SetBool("isDown", false);
+        }
+
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= speed;
         controller.Move(moveDirection * Time.deltaTime);
